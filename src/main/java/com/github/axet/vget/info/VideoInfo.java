@@ -1,12 +1,9 @@
 package com.github.axet.vget.info;
 
+import java.net.URI;
 import java.net.URL;
-import java.util.concurrent.atomic.AtomicBoolean;
 
-import com.github.axet.vget.vhs.VimeoParser;
-import com.github.axet.vget.vhs.YouTubeParser;
 import com.github.axet.wget.info.DownloadInfo;
-import com.github.axet.wget.info.ex.DownloadInterruptedError;
 
 public class VideoInfo {
 
@@ -19,6 +16,7 @@ public class VideoInfo {
 
     private DownloadInfo info;
     private String title;
+    private URI playerURI;
     private URL icon;
 
     // states, three variables
@@ -72,8 +70,17 @@ public class VideoInfo {
     public void setTitle(String title) {
         this.title = title;
     }
+    
+    
+    public URI getPlayerURI() {
+		return playerURI;
+	}
 
-    public DownloadInfo getInfo() {
+	public void setPlayerURI(URI playerURI) {
+		this.playerURI = playerURI;
+	}
+
+	public DownloadInfo getInfo() {
         return info;
     }
 

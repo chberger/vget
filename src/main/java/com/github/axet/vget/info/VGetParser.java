@@ -22,11 +22,13 @@ public abstract class VGetParser {
             dinfo.extract(stop, notify);
         } catch (DownloadInterruptedError e) {
             info.setState(States.STOP, e);
-
+            info.setException(e);
+            notify.run();
             throw e;
         } catch (RuntimeException e) {
             info.setState(States.ERROR, e);
-
+            info.setException(e);
+            notify.run();
             throw e;
         }
     }
